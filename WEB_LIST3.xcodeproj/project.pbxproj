@@ -21,7 +21,6 @@
 		D70B144A2C207E0400683498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D70B144D2C207E0400683498 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D70B14542C20838800683498 /* songs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = songs.csv; path = ../../../cvsTest1.2/cvsTest1.2/songs.csv; sourceTree = "<group>"; };
-		D70B14562C2083A900683498 /* songs.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = songs.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				D70B14462C207E0200683498 /* WEB_LIST3App.swift */,
-				D70B14562C2083A900683498 /* songs.csv */,
 				D70B14482C207E0200683498 /* ContentView.swift */,
 				D70B144A2C207E0400683498 /* Assets.xcassets */,
 				D70B144C2C207E0400683498 /* Preview Content */,
@@ -281,6 +279,7 @@
 				DEVELOPMENT_TEAM = YH7NH9H65M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +309,7 @@
 				DEVELOPMENT_TEAM = YH7NH9H65M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

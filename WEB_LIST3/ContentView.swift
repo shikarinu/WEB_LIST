@@ -1,13 +1,28 @@
 import SwiftUI
 import WebKit
 
+// PhotoData 構造体の定義
+struct PhotoData: Identifiable {
+    var id = UUID()
+    var imageName: String
+    var artist: String
+}
+
+// 曲データ構造体の定義
+struct SongData: Identifiable {
+    var id = UUID()
+    var title: String
+    var url: String
+}
+
 // WebView の定義
 struct WebView: UIViewRepresentable {
     let url: URL
     let scale: CGFloat
 
     func makeUIView(context: Context) -> WKWebView {
-        WKWebView()
+        let webView = WKWebView()
+        return webView
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
@@ -41,27 +56,16 @@ struct WebView: UIViewRepresentable {
 }
 
 struct ContentView: View {
-    // PhotoData 構造体の定義
-    struct PhotoData: Identifiable {
-        var id = UUID()
-        var imageName: String
-        var artist: String
-    }
-    
-    // 曲データ構造体の定義
-    struct SongData: Identifiable {
-        var id = UUID()
-        var title: String
-        var url: String
-    }
-    
     // データの定義
     @State private var photoArray = [
         PhotoData(imageName: "aespa_img", artist: "aespa"),
         PhotoData(imageName: "bigbang_img", artist: "BIGBANG"),
         PhotoData(imageName: "itzy_img", artist: "ITZY"),
         PhotoData(imageName: "ive_img", artist: "IVE"),
-        PhotoData(imageName: "stray_kids_img", artist: "Stray_Kids"),
+        PhotoData(imageName: "stray_kids_img", artist: "Stray Kids"),
+        PhotoData(imageName: "everglow_img", artist: "EVERGLOW"),
+        PhotoData(imageName: "illit_img", artist: "ILLIT"),
+        PhotoData(imageName: "LE_SSERAFIM_img", artist: "LE SSERAFIM"),
     ].sorted { $0.artist.lowercased() < $1.artist.lowercased() }
     
     // アーティストごとの曲データを格納する辞書
@@ -142,16 +146,17 @@ struct ContentView: View {
                                             .frame(width: 150, height: 150)
                                             .clipShape(Circle())
                                             .shadow(radius: 10)
+                                        
+                                        Text(photoArray[index].artist)
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(.white) // 文字色を白に設定
+                                            .padding(.top, 10) // ロゴの下にアーティスト名を表示するための余白を追加
                                     }
-                                    
-                                    Text(photoArray[index].artist)
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity)
-                                        .multilineTextAlignment(.center)
-                                        .foregroundColor(.white) // 文字色を白に設定
+                                    .padding()
                                 }
-                                .padding()
                             }
                         }
                     }
@@ -169,7 +174,7 @@ struct ContentView: View {
 }
 
 struct ArtistDetailView: View {
-    var songs: [ContentView.SongData]
+    var songs: [SongData]
     var artist: String
     
     var body: some View {
@@ -178,7 +183,7 @@ struct ArtistDetailView: View {
                 ForEach(songs) { song in
                     NavigationLink(destination:
                         VStack {
-                            WebView(url: URL(string: song.url)!, scale: 0.5) // スケールを設定
+                            WebView(url: URL(string: song.url)!, scale: 0.9) // スケールを設定
                                 .frame(height: 300) // WebView の高さを設定
                                 .background(
                                     LinearGradient(gradient: Gradient(colors: [Color(red: 28/255, green: 25/255, blue: 45/255), Color(red: 45/255, green: 42/255, blue: 72/255)]), startPoint: .top, endPoint: .bottom) // グラデーションを設定
